@@ -1,0 +1,138 @@
+CRA(create react app): best way to building a single page application in react.
+Vite: is a common platform 
+
+-> react: is js library founded by fb in 2011. used to make interactive user interface faster.
+at the heart of all react application are components.component is peace of ui.when building application in react,we build independent,isolated,reusable component.
+a react application has atleast one parent component which may have many child component. 
+
+-> What is JSX?
+JSX stands for JavaScript XML.
+JSX allows us to write HTML in React.
+JSX makes it easier to write and add HTML in React.
+from outside jsx looks like plain html,but inside it is js object property 
+
+->some differences in react app:
+ 1.className instead of class
+ 2.{} instead of ${}
+ 3.style app.css e likha  jay,noeto style object hisebe,noeto inline e {{}} er vitor .dynamic houar jnno duita bracket.
+
+ ->summery: component is nothing but a function.component er vitor html tag er akare data pathaite parbo.data pathabo html er attribute akare.ar pabo fn er vitor object akare.
+    component decleare korte hoa fn akare.oi fn er parameter er vitor props likhbo.
+
+function App() {
+  const friends=['adiba','tanjib','ifti','tamim'];
+  const friends1=[
+    {name:'adiba',job:'front'},
+    {name:'adib',job:'back'},
+    {name:'adi',job:'full'}
+    
+  ]
+  return (
+    <div className="App">
+      {
+        friends.map(friend=> <Person name={friend}></Person>)
+      }
+      {
+        friends1.map(friend=><Person name={friend.name} job={friend.job}></Person>)
+      }
+    </div>
+  );
+  function Person(props){
+    return (
+      <div className='person'>
+        <h1>Name:{props.name} </h1>
+        <p>Job:{props.job} </p>
+      </div>
+    )
+  }
+  
+}
+
+#### useState(): state ke change korar jnno
+  *er fn ta asynchronous vbe kj kore.
+  image-13
+  steps ak kom dekhabe console.log korle.
+
+function App() {
+  
+  return (
+    <div className="App">
+      <Count></Count>
+    </div>
+  );
+  
+  
+}
+function Count(){
+  const [count,setCount]=useState(23)
+  const increaseCount=()=>{
+    setCount(count+1);
+  }
+  const decreaseCount=()=>{
+    setCount(count-1);
+  }
+  return (
+    <div>
+      <h1>count:{count}</h1>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
+    </div>
+  )
+}
+
+***dynamically data loading using api:
+
+import { useEffect, useState } from 'react';
+
+function App() {
+  
+  return (
+    <div className="App">
+      <ExternalUsers></ExternalUsers>
+    </div>
+  );
+  
+  
+}
+function ExternalUsers(){
+  const [users,setUser]=useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res=>res.json())
+    .then(data=>setUser(data))
+  },[])
+  return (
+    <div>
+      <h1>Users:{users.length}</h1>
+      {
+        users.map(user=><User name={user.name} email={user.email}></User>)
+      }
+    </div>
+  )
+}
+function User(props){
+  return(
+    <div style={{border:'1px solid red', width:'200px',margin:'0 auto',marginBottom:'20px'}}>
+      <h2>Name:{props.name}</h2>
+      <p>Email:{props.email}</p>
+    </div>
+  )
+}
+
+
+##########----------SUMMERY----------##########
+
+1.JavaScript XML:
+image-5
+2.component:
+image-6
+3.Props:(props unidirectional ,alz parent thk child e data pass hoa. vise versa hoana)
+image-7
+4.useState:
+image-8
+image-9
+5.useEffect:
+image-10
+image-11
+6.event Handler:
+image-12

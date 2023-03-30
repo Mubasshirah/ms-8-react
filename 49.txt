@@ -1,0 +1,69 @@
+***npm: npm is a package manager for the JavaScript programming language maintained by npm, Inc. npm is the default package manager for the JavaScript runtime environment Node.js.
+a.npm create
+b.npm init
+c.npm install
+
+**useState e latest value dekhar upay:
+image-14
+
+***state vs props:
+state dia kono obostha change hoa.but props oi state ke onno component e pathaite use hoa.props kono obostha change korena
+
+**what is reactjs:
+image-15
+image-16
+image-17
+
+*react vs angular vs vue:
+image-(18-26)
+
+*when touse react:
+image (27-28)
+*when touse angular:
+image (29-30)
+
+*popular feature of react:
+image-31
+
+*what is virtual dom:
+image-32
+*how it works:
+diff algorithm
+react fiber (dekhte hbe)
+*virtual vs real:
+image-33
+
+*component lifecycle:
+image 34,35
+
+*values of props:
+image 36,37
+*props drilling:
+image 38
+
+*what is state:
+image-39
+
+*state vs props:
+image-40
+
+*hook and useState hook,useEffect hook:
+image-41
+image-42
+image-43,44
+
+*interview qn:
+image-45,46
+
+hook:React hooks are functions that allow developers to use state and other React features without writing a class component. Hooks were introduced in React version 16.8 as a way to simplify state management and lifecycle methods in functional components.
+
+React hooks allow developers to reuse stateful logic between components, extract side effects and state management from the component tree, and provide a simpler API for managing stateful logic. Some commonly used hooks include useState, useEffect, useContext, and useReducer.
+
+attribute vs property:In React, attributes and properties are both used to pass information to components, but they have different meanings and behaviors.
+
+Attributes are defined in the HTML specification and are used to define the initial values of DOM elements. When React creates a component, it uses the attributes to set the initial properties of the corresponding DOM elements. However, once the component is rendered, the attributes are not updated, and any changes made to them will not be reflected in the DOM. In other words, attributes are static and read-only.
+
+Properties, on the other hand, represent the current state of the DOM and can be changed by JavaScript. When a component is rendered, React creates a virtual representation of the DOM, and updates the properties of the corresponding DOM elements as needed to reflect the current state of the component. Properties are dynamic and can be updated using state, props, or by directly manipulating the DOM using JavaScript.
+
+***Babel is a JavaScript compiler​
+Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Here are the main things Babel can do for you: Transform syntax.

@@ -1,0 +1,59 @@
+1.component:
+  4 ways:
+    a.similar in look different in data.
+    b.container component
+    c.no pattern but breakdown for working purpose
+    d.stand alone component
+
+2.single page application(SPA) pros:
+   a. Quick Loading Time
+   b.Seamless User Experience
+   c.Ease in Building Feature-rich Apps
+   d.Uses Less Bandwidth
+  
+  Single Page Application Cons:
+   a.Doesn’t Perform Well With SEO
+   b.Uses a Lot of Browser Resources
+   c.Security Issues
+
+3.Routing:ak page thk arek page e jaua.
+
+4.destructuring kore kono akta object thk data show korano. 
+  
+  option 1:
+  const getcountryData=country=>{
+    const {name,flags}=country;
+    return `
+     <div>
+     <h3>${country.name.common}</h3>
+     <img src="${country.flags.png}">
+     </div>
+
+    `;
+}
+  
+  option 2:
+  const getcountryData=({name,flags})=>{
+    
+    return `
+     <div>
+     <h3>${name.common}</h3>
+     <img src="${flags.png}">
+     </div>
+
+    `;
+}
+
+5.state change: user interaction er maddhome ak obostha thk website arek obosthay jay.
+
+->->What is component in react:
+image-1
+
+->->props:
+image-2
+
+->->props vs state:
+image-3
+
+->-> interview n:
+image-4
