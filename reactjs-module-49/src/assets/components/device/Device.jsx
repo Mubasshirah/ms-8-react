@@ -2,7 +2,7 @@ import React from 'react';
 import Devicedetails from '../deviceDetails/Devicedetails';
 
 const Device = (props) => {
-    console.log(props);
+
     
     return (
         <div>

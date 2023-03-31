@@ -67,3 +67,175 @@ Properties, on the other hand, represent the current state of the DOM and can be
 
 ***Babel is a JavaScript compiler​
 Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Here are the main things Babel can do for you: Transform syntax.
+
+
+**import and export:
+samne kichuna thaka means node modules thk import korse
+./ means same folder thk import korse
+../ means oi folder thk ber hoa oon folder e.
+../../ oi folder thk arekta sta thk arekta and goes on
+
+*import korrar age export korte hbe.
+
+->export default something  jdi akta fn ke export kora hoa 
+-> export {something,something,..} jdi more than one hoa
+
+**props drilling:
+function App() {
+ 
+  return (
+    <div className="App">
+      <Watch></Watch>
+     
+    </div>
+  )
+}
+
+const Watch = () => {
+    const [count,setCount]=useState(0)
+    const startWalk=()=>{
+        setCount(count+1)
+    }
+    return (
+        <div>
+            <h4>your step:{count}</h4>
+            <button onClick={startWalk}>walk</button>
+            <Secondwatch steps={count}></Secondwatch>
+        </div>
+    );
+};
+
+const Secondwatch = (props) => {
+    return (
+        <div>
+            <h4>this is second watch:{props.steps}</h4>
+            <Thirdwatch steps={props.steps}></Thirdwatch>
+        </div>
+    );
+};
+
+const Thirdwatch = (props) => {
+    return (
+        <div>
+            <h5>this is third watch:{props.steps}</h5>
+        </div>
+    );
+};
+
+
+**fake data making and showing in ui dynamically:(json generator)
+data.json:
+[
+    {
+      "_id": "64253bbae35fb6061c71fae4",
+      "price": 285,
+      "name": "Marylou Herring"
+    },
+    {
+      "_id": "64253bba05bcab9cd7884ccc",
+      "price": 166,
+      "name": "Katelyn Hunter"
+    },
+    {
+      "_id": "64253bbabdd9a89bcaf97e5f",
+      "price": 78,
+      "name": "Adams Brock"
+    },
+    {
+      "_id": "64253bbaeba45b9a7e631beb",
+      "price": 370,
+      "name": "Donaldson Gallagher"
+    },
+    {
+      "_id": "64253bbaefca5062c49f1948",
+      "price": 176,
+      "name": "Combs Barron"
+    },
+    {
+      "_id": "64253bbaeaf53fd4f62cbf3d",
+      "price": 67,
+      "name": "Allen Fields"
+    }
+  ]
+
+function App() {
+const [stores,setStore]=useState([]);
+useEffect(()=>{
+  fetch('data.json')
+  .then(res=>res.json())
+  .then(data=>setStore(data))
+},[])
+  return (
+    <div className="App">
+      {
+        stores.map(store=><SingleStore store={store} key={store._id}></SingleStore>)
+      }
+      </div>
+  )
+}
+
+const SingleStore = (props) => {
+    const {name,price,_id}=props.store;
+    const addToCart=(_id)=>{
+        addToCartItem(_id)
+        console.log('item added',_id);
+    }
+    return (
+        <div>
+            <h3>store name:{name}</h3>
+            <h3>store price:{price}</h3>
+            <button onClick={()=>addToCart(_id)}>Add to cart</button>
+        </div>
+    );
+};
+
+
+
+->add to local storage one by one:
+const addToCartItem=(id)=>{
+    let quantity=localStorage.getItem(id);
+    if(quantity){
+        quantity=parseInt(quantity)+1;
+        localStorage.setItem(id,quantity)
+    }
+    else{
+
+        localStorage.setItem(id,1)
+    }
+}
+
+
+
+->->***->->add and remove from local storage as object:
+const addToCartItem=(id)=>{
+   let shoppingCart;
+   const storedCart=localStorage.getItem('shopping-cart');
+   if(storedCart){
+    shoppingCart=JSON.parse(storedCart)
+   }
+   else{
+    shoppingCart={};
+   }
+   const quantity=shoppingCart[id];
+   if(quantity){
+    console.log(quantity);
+    const newQuantity=quantity+1;
+    shoppingCart[id]=newQuantity;
+
+   }
+   else{
+    shoppingCart[id]=1;
+   }
+   localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
+}
+
+const removeFromDb=(id)=>{
+const storedCart=localStorage.getItem('shopping-cart');
+if(storedCart){
+   const shoppingCart=JSON.parse(storedCart);
+    if(id in shoppingCart){
+        delete shoppingCart[id];
+        localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
+    }
+}
+}
