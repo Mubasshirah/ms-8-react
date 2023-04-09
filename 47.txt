@@ -126,7 +126,7 @@ function User(props){
 image-5
 2.component:
 image-6
-3.Props:(props unidirectional ,alz parent thk child e data pass hoa. vise versa hoana)
+3.Props:(props unidirectional ,immutable,alz parent thk child e data pass hoa. vise versa hoana)
 image-7
 4.useState:
 image-8

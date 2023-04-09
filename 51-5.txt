@@ -1,0 +1,29 @@
+1> rules of react hook: 
+       image-47
+
+2>what is state and exmpl:
+       image-48
+
+3>how useState is decleared:
+       image-49
+4>use cases of useState:
+       image-50
+
+5>what are side effect:
+       image-51
+6>what is useEffect
+       image-52
+7>clean up:
+ image-53,54,55
+ 8> useEffect dependency and independency
+ image-56,57
+ 9>useEfect with setInterval()
+ image-58
+ 10>ise cases of useEfect
+ image-59
+ 11>what is render
+ image-60
+ 12.ssr and csr:
+ image-61,62
+ 13.csr or ssr:
+ image-63
